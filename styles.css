@@ -81,3 +81,35 @@ footer {
 body, h1, h2, p, li {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
+/* ====== Estilos para telas pequenas ====== */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    section {
+        padding: 15px;
+        margin: 15px 10px;
+        border-radius: 6px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    .whatsapp {
+        bottom: 15px;
+        right: 15px;
+        font-size: 22px;
+        padding: 12px;
+    }
+}
