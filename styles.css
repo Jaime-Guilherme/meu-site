@@ -126,3 +126,7 @@ body, h1, h2, p, li {
         padding: 12px;
     }
 }
+i {
+  color: #f1c40f; /* amarelo para o icone de cima do site */
+  margin-right: 8px;
+}
