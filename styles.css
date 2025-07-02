@@ -126,15 +126,14 @@ body, h1, h2, p, li {
         padding: 12px;
     }
 }
-i {
-  color: #f1c40f; /* amarelo para o icone de cima do site */
-  margin-right: 8px;
-}
-a {
-  color: #0077b5; /* azul padrão do LinkedIn */
+.botao-link {
+  color: #ffffff;
+  background-color: #0077b5;
+  padding: 8px 16px;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-a:hover {
-  text-decoration: underline;
-}
