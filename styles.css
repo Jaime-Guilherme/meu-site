@@ -137,3 +137,8 @@ body, h1, h2, p, li {
   transition: background-color 0.3s ease;
 }
 
+.botao-link:hover {
+  background-color: #005582;
+}
+
+
