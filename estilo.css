@@ -1,0 +1,206 @@
+/* ===== ESTILO GERAL ===== */ 
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #f9e6d9;   /* tom claro rosé-dourado */
+
+  /* ===== NOVO FUNDO COM IMAGEM ===== */
+  background-image: url('imagem\ de\ fundo\ 1.jpg'); /* ajuste o caminho da imagem */
+  background-size: cover;        /* cobre toda a tela */
+  background-position: center;   /* centraliza */
+  background-repeat: no-repeat;  /* evita repetição */
+  background-attachment: fixed;  /* efeito fixo ao rolar */
+  background-color: #111;        /* cor de fundo base, caso a imagem não carregue */
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+  background: rgba(0, 0, 0, 0.8); /* leve transparência pro fundo aparecer */
+  color: #f2c9b1; /* dourado rosé suave */
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #f2c9b1;
+}
+
+/* ===== MENU ===== */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav a {
+  color: #f9e6d9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #d4af37; /* dourado */
+  text-decoration: underline;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main {
+  padding: 40px;
+  text-align: center;
+  background-color: rgba(26, 26, 26, 0.9); /* fundo escuro semi-transparente */
+  border-radius: 12px;
+  margin: 30px auto;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+section img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== PRODUTOS ===== */
+.produtos-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.produto {
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #f2c9b1;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); /* brilho dourado */
+}
+
+.produto img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ===== FORMULÁRIO ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #f2c9b1;
+  border-radius: 5px;
+  background-color: #111;
+  color: #f9e6d9;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #d8bfa9;
+}
+
+button {
+  background: linear-gradient(90deg, #d4af37, #f2c9b1);
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #000;
+  color: #f2c9b1;
+  border: 1px solid #f2c9b1;
+}
+
+/* ===== SEÇÃO DE VÍDEO ===== */
+.video-sobre {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: rgba(17, 17, 17, 0.85); /* leve transparência */
+  border-radius: 12px;
+}
+
+.video-sobre h2 {
+  font-size: 2rem;
+  color: #f2c9b1;
+  margin-bottom: 20px;
+}
+
+.video-sobre video {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  background: rgba(0, 0, 0, 0.85);
+  color: #f2c9b1;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border-top: 1px solid #f2c9b1;
+}
+
+/* ===== RESPONSIVO ===== */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  section {
+    padding: 15px;
+    margin: 15px 10px;
+    border-radius: 6px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  main {
+    width: 95%;
+    padding: 20px;
+  }
+}
