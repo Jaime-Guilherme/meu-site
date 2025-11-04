@@ -7,6 +7,8 @@
     <meta name="author" content="Jaime Guilherme Caceda">
     <title>⚡ Jaime Guilherme — Técnico em Eletrônica e Informática</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!-- ícones -->
+    <!-- Fonte profissional: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
     <link rel="icon" href="favicon.ico">
     <!-- Open Graph / Social -->
@@ -65,7 +67,7 @@
             <div class="projects-grid">
                 <article class="project-card">
                     <a href="#" class="project-link" aria-label="Projeto 1 - Medição de quadro elétrico">
-                        <img src="medicao-de-quadro.jpg" alt="Medição de quadro elétrico" loading="lazy">
+                        <img src="jaime-medindo-quadro.jpeg" alt="Medição de quadro elétrico" loading="lazy" class="zoomable" tabindex="0">
                         <h3>Diagnóstico elétrico</h3>
                         <p>Verificação de qualidade e segurança em instalações residenciais e comerciais.</p>
                     </a>
@@ -73,15 +75,15 @@
 
                 <article class="project-card">
                     <a href="#" class="project-link" aria-label="Projeto 2 - Monitoramento de energia">
-                        <img src="imagem-de-fundo-2.jpg" alt="Painel de monitoramento" loading="lazy">
-                        <h3>Monitoramento de energia</h3>
-                        <p>Soluções para estabilidade de energia e manutenção em no-breaks.</p>
+                        <img src="painel-no-break.jpeg" alt="Painel de monitoramento" loading="lazy" class="zoomable" tabindex="0">
+                        <h3>Manutenção preventiva e corretiva</h3>
+                        <p>Limpeza interna e externa,teste geral de funcionamento em no-breaks.</p>
                     </a>
                 </article>
 
                 <article class="project-card">
                     <a href="#" class="project-link" aria-label="Projeto 3 - Desenvolvimento de site">
-                        <div class="project-placeholder">Site</div>
+                        <img src="print-site-skiva.png" alt="Preview do site Skiva" class="zoomable" loading="lazy">
                         <h3>Desenvolvimento de sites</h3>
                         <p>Sites simples, rápidos e responsivos para pequenos negócios.</p>
                     </a>
@@ -91,14 +93,27 @@
 
         <section id="contato">
             <h2>Entre em contato comigo</h2>
-            <p>LinkedIn: <a class="botao-link" href="https://www.linkedin.com/in/jaimecaceda/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Jaime Guilherme">jaimecaceda</a></p>
-            <p><a class="botao-link" href="cv.pdf" target="_blank" rel="noopener noreferrer">Baixar CV (PDF)</a></p>
-            <p>WhatsApp: <a href="https://wa.me/5554991465729" target="_blank" rel="noopener noreferrer">(54) 9 9146-5729</a> — respondo em minutos.</p>
-        </section>
 
-        <section id="imagem-final">
-            <h2>Confiança e Qualidade no que faço</h2>
-            <img src="medicao-de-quadro.jpg" alt="Jaime realizando medição em quadro elétrico">
+            <!-- Formulário de contato (Formspree) -->
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text" required>
+
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <!-- dados opcionais -->
+                <input type="hidden" name="_subject" value="Contato pelo site — Jaime">
+                <button type="submit" class="botao-link">Enviar mensagem</button>
+                <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+
+            <p>LinkedIn: <a class="botao-link" href="https://www.linkedin.com/in/jaimecaceda/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Jaime Guilherme">jaimecaceda</a></p>
+            <p><a class="botao-link" href="Jaime-Curriculo-2025.pdf" target="_blank" rel="noopener noreferrer">Baixar Curriculo (PDF)</a></p>
+
         </section>
 
     </main>
@@ -107,5 +122,95 @@
         <p>Desenvolvido por Jaime Guilherme Caceda</p>
     </footer>
 
-</body>
-</html>
+    <!-- Modal para exibição ampliada de imagens -->
+    <div id="img-modal" role="dialog" aria-hidden="true" aria-label="Visualizador de imagem">
+      <button class="close-btn" aria-label="Fechar">✕</button>
+      <div class="modal-content">
+        <img src="" alt="" id="modal-image">
+      </div>
+      <div class="caption" id="modal-caption" aria-hidden="true"></div>
+    </div>
+
+    <script>
+    // Lightbox simples para imagens com a classe .zoomable
+    (function(){
+        const modal = document.getElementById('img-modal');
+        const modalImg = document.getElementById('modal-image');
+        const caption = document.getElementById('modal-caption');
+        const closeBtn = modal.querySelector('.close-btn');
+
+        function open(src, alt){
+            modalImg.src = src;
+            modalImg.alt = alt || '';
+            caption.textContent = alt || '';
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden','false');
+            // trap focus if needed
+        }
+
+        function close(){
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden','true');
+            modalImg.src = '';
+        }
+
+        document.querySelectorAll('img.zoomable').forEach(img => {
+            img.style.touchAction = 'manipulation';
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                open(img.src, img.alt);
+            });
+            img.addEventListener('keydown', (e)=>{
+                if(e.key === 'Enter' || e.key === ' ') { open(img.src, img.alt); }
+            });
+        });
+
+        closeBtn.addEventListener('click', close);
+        modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+    })();
+    </script>
+
+        <script>
+        // Form submission via fetch with fallback to normal POST
+        (function(){
+            const form = document.getElementById('contact-form');
+            const status = document.getElementById('form-status');
+            if(!form) return;
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                status.textContent = 'Enviando...';
+                const data = new FormData(form);
+                const action = form.getAttribute('action');
+
+                // enviar via fetch
+                fetch(action, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: data
+                }).then(response => {
+                    if(response.ok){
+                        form.reset();
+                        status.textContent = 'Mensagem enviada. Obrigado!';
+                    } else {
+                        response.json().then(json => {
+                            status.textContent = (json && json.error) ? json.error : 'Erro no envio. Tente novamente.';
+                        }).catch(()=>{
+                            status.textContent = 'Erro no envio. Tente novamente.';
+                        });
+                    }
+                }).catch(()=>{
+                    // fallback: submit normal
+                    status.textContent = 'Tentando método alternativo...';
+                    form.removeEventListener('submit', arguments.callee);
+                    form.submit();
+                });
+            });
+        })();
+        </script>
+
+    </body>
+    </html>
