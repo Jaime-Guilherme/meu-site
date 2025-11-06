@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site profissional de Jaime Guilherme, técnico em eletrônica e informática, oferecendo serviços de manutenção e desenvolvimento de sites." />
     <meta name="author" content="Jaime Guilherme Caceda">
-    <title>⚡ Jaime Guilherme — Técnico em Eletrônica e Informática</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!-- ícones -->
-    <!-- Fonte profissional: Inter -->
+    <title>Jaime Guilherme — Técnico em Eletrônica e Informática</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
     <link rel="icon" href="favicon.ico">
+
     <!-- Open Graph / Social -->
     <meta property="og:title" content="Jaime Guilherme — Técnico em Eletrônica e Informática">
     <meta property="og:description" content="Manutenção eletrônica, sistemas automotivos, energia, alarmes e desenvolvimento de sites. Entre em contato.">
@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-    <!-- botão flutuante WhatsApp -->
+    <!-- Botão flutuante WhatsApp -->
     <a href="https://wa.me/5554991465729" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Fale comigo no WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
@@ -27,19 +27,31 @@
     <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 
     <header>
-        <h1>
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#ffffff" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
-                <path d="M13 2L3 14h9l-1 8L21 10h-9l1-8z"/>
-            </svg>
-            Jaime Guilherme Caceda
-        </h1>
-        <p>Técnico em Eletrônica | Técnico em Informática (em formação)</p>
+        <div class="header-container">
+            <a href="#main-content" aria-label="Voltar ao topo da página">
+                <img src="JGC-bytesolutions.png" alt="Logo JGC ByteSolutions" class="logo">
+            </a>
+            <div class="header-text">
+                <h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#ffffff" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 8px;">
+                        <path d="M13 2L3 14h9l-1 8L21 10h-9l1-8z"/>
+                    </svg>
+                    Jaime Guilherme Caceda
+                </h1>
+                <p>Técnico em Eletrônica | Técnico em Informática (em formação)</p>
+            </div>
+            <button id="theme-toggle" aria-label="Alternar tema">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
         <nav aria-label="Navegação principal">
             <a href="#sobre">Sobre</a> •
             <a href="#servicos">Serviços</a> •
             <a href="#projetos">Projetos</a> •
             <a href="#contato">Contato</a>
         </nav>
+        <a href="#contato" class="cta-button">Fale comigo agora</a>
     </header>
 
     <main id="main-content">
@@ -77,7 +89,7 @@
                     <a href="#" class="project-link" aria-label="Projeto 2 - Monitoramento de energia">
                         <img src="painel-no-break.jpeg" alt="Painel de monitoramento" loading="lazy" class="zoomable" tabindex="0">
                         <h3>Manutenção preventiva e corretiva</h3>
-                        <p>Limpeza interna e externa,teste geral de funcionamento em no-breaks.</p>
+                        <p>Limpeza interna e externa, teste geral de funcionamento em no-breaks.</p>
                     </a>
                 </article>
 
@@ -105,7 +117,6 @@
                 <label for="message">Mensagem</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <!-- dados opcionais -->
                 <input type="hidden" name="_subject" value="Contato pelo site — Jaime">
                 <button type="submit" class="botao-link">Enviar mensagem</button>
                 <p id="form-status" class="form-status" aria-live="polite"></p>
@@ -113,7 +124,6 @@
 
             <p>LinkedIn: <a class="botao-link" href="https://www.linkedin.com/in/jaimecaceda/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Jaime Guilherme">jaimecaceda</a></p>
             <p><a class="botao-link" href="Jaime-Curriculo-2025.pdf" target="_blank" rel="noopener noreferrer">Baixar Curriculo (PDF)</a></p>
-
         </section>
 
     </main>
@@ -124,15 +134,16 @@
 
     <!-- Modal para exibição ampliada de imagens -->
     <div id="img-modal" role="dialog" aria-hidden="true" aria-label="Visualizador de imagem">
-      <button class="close-btn" aria-label="Fechar">✕</button>
+      <button class="close-btn" aria-label="Fechar">X</button>
       <div class="modal-content">
         <img src="" alt="" id="modal-image">
       </div>
       <div class="caption" id="modal-caption" aria-hidden="true"></div>
     </div>
 
+    <!-- Scripts -->
     <script>
-    // Lightbox simples para imagens com a classe .zoomable
+    // Lightbox
     (function(){
         const modal = document.getElementById('img-modal');
         const modalImg = document.getElementById('modal-image');
@@ -145,7 +156,6 @@
             caption.textContent = alt || '';
             modal.classList.add('open');
             modal.setAttribute('aria-hidden','false');
-            // trap focus if needed
         }
 
         function close(){
@@ -166,51 +176,66 @@
         });
 
         closeBtn.addEventListener('click', close);
-        modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
-        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+        modal.addEventListener('click', e => { if(e.target === modal) close(); });
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
     })();
-    </script>
 
-        <script>
-        // Form submission via fetch with fallback to normal POST
-        (function(){
-            const form = document.getElementById('contact-form');
-            const status = document.getElementById('form-status');
-            if(!form) return;
+    // Form submission
+    (function(){
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        if(!form) return;
 
-            form.addEventListener('submit', function(e){
-                e.preventDefault();
-                status.textContent = 'Enviando...';
-                const data = new FormData(form);
-                const action = form.getAttribute('action');
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            status.textContent = 'Enviando...';
+            const data = new FormData(form);
+            const action = form.getAttribute('action');
 
-                // enviar via fetch
-                fetch(action, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    body: data
-                }).then(response => {
-                    if(response.ok){
-                        form.reset();
-                        status.textContent = 'Mensagem enviada. Obrigado!';
-                    } else {
-                        response.json().then(json => {
-                            status.textContent = (json && json.error) ? json.error : 'Erro no envio. Tente novamente.';
-                        }).catch(()=>{
-                            status.textContent = 'Erro no envio. Tente novamente.';
-                        });
-                    }
-                }).catch(()=>{
-                    // fallback: submit normal
-                    status.textContent = 'Tentando método alternativo...';
-                    form.removeEventListener('submit', arguments.callee);
-                    form.submit();
-                });
+            fetch(action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: data
+            }).then(r => {
+                if(r.ok){
+                    form.reset();
+                    status.textContent = 'Mensagem enviada. Obrigado!';
+                } else {
+                    r.json().then(j => status.textContent = (j && j.error) || 'Erro no envio.');
+                }
+            }).catch(() => {
+                status.textContent = 'Tentando método alternativo...';
+                form.removeEventListener('submit', arguments.callee);
+                form.submit();
             });
-        })();
-        </script>
+        });
+    })();
 
-    </body>
-    </html>
+    // Animação de títulos ao rolar
+    document.addEventListener("scroll", function() {
+        document.querySelectorAll('h2').forEach(h => {
+            const rect = h.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) h.classList.add('visible');
+        });
+    });
+
+    // Parallax leve no logo
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.3;
+        document.querySelector('.logo').style.transform = `translateY(${parallax}px) scale(1.02)`;
+    });
+
+    // Dark mode toggle
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.dataset.theme === 'dark';
+        document.documentElement.dataset.theme = isDark ? '' : 'dark';
+        localStorage.setItem('theme', document.documentElement.dataset.theme);
+    });
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+    }
+    </script>
+</body>
+</html>
